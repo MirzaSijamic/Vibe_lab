@@ -42,7 +42,12 @@
             "id": "q1",
             "type": "multiple-choice",
             "prompt": "Which keyword declares a constant in JavaScript?",
-            "choices": ["let", "var", "const", "static"],
+            "choices": [
+              "let",
+              "var",
+              "const",
+              "static"
+            ],
             "correctOption": "const",
             "weight": 1
           },
@@ -57,14 +62,51 @@
             "id": "q3",
             "type": "short-answer",
             "prompt": "What method converts JSON text into an object?",
-            "acceptableAnswers": ["JSON.parse", "json.parse"],
+            "acceptableAnswers": [
+              "JSON.parse",
+              "json.parse"
+            ],
             "weight": 2
           }
         ]
       }
     }
   ],
-  "students": [],
-  "enrollments": [],
-  "progress": []
+  "students": [
+    {
+      "id": "student-1777286387827-atob6p",
+      "name": "Amina",
+      "createdAt": "2026-04-27T10:39:47.827Z"
+    }
+  ],
+  "enrollments": [
+    {
+      "id": "enrollment-1777286387827-c2gf8h",
+      "studentId": "student-1777286387827-atob6p",
+      "courseId": "course-js-foundations",
+      "enrolledAt": "2026-04-27T10:39:47.827Z",
+      "status": "active"
+    }
+  ],
+  "progress": [
+    {
+      "studentId": "student-1777286387827-atob6p",
+      "courseId": "course-js-foundations",
+      "completedLessonIds": [
+        "lesson-variables"
+      ],
+      "quizAttempts": [
+        {
+          "quizId": "quiz-js-foundations",
+          "strategy": "percentage",
+          "score": 3,
+          "maxScore": 3,
+          "percentage": 100,
+          "passed": true,
+          "attemptedAt": "2026-04-27T10:39:47.856Z"
+        }
+      ],
+      "updatedAt": "2026-04-27T10:39:47.856Z"
+    }
+  ]
 }

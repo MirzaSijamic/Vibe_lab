@@ -60,7 +60,7 @@ export class ProgressService {
       studentId,
       courseId,
       "lesson-completed",
-      `Lesson ${lessonId} marked complete.",
+      `Lesson ${lessonId} marked complete.`,
       progressPercent,
       timestamp,
     );
@@ -90,7 +90,7 @@ export class ProgressService {
       studentId,
       courseId,
       "quiz-submitted",
-      `Quiz ${quizAttempt.quizId} submitted with ${quizAttempt.percentage}%.",
+      `Quiz ${quizAttempt.quizId} submitted with ${quizAttempt.percentage}%.`,
       progressPercent,
       timestamp,
     );

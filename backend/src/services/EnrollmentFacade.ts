@@ -45,11 +45,7 @@ export class EnrollmentFacade {
       throw new HttpError(400, "studentName is required.");
     }
 
-    let enrolledStudent: StudentRecord | null = null;
-    let enrolledRecord: EnrollmentRecord | null = null;
-    let alreadyEnrolled = false;
-
-    await withStore((store) => {
+    const enrollmentOutcome = await withStore((store) => {
       const course = store.courses.find((item) => item.id === courseId);
       if (!course) {
         throw new HttpError(404, "Course not found.");
@@ -72,6 +68,7 @@ export class EnrollmentFacade {
         (item) => item.studentId === student!.id && item.courseId === courseId,
       );
 
+      let alreadyEnrolled = false;
       if (enrollment) {
         alreadyEnrolled = true;
       } else {
@@ -90,22 +87,21 @@ export class EnrollmentFacade {
         store.enrollments.push(enrollment);
       }
 
-      enrolledStudent = student;
-      enrolledRecord = enrollment;
+      return {
+        student,
+        enrollment,
+        alreadyEnrolled,
+      };
     });
 
-    if (!enrolledStudent || !enrolledRecord) {
-      throw new HttpError(500, "Failed to complete enrollment.");
-    }
-
-    const progress = alreadyEnrolled
-      ? await this.progressService.getSummary(enrolledStudent.id, courseId)
-      : await this.progressService.initializeProgress(enrolledStudent.id, courseId);
+    const progress = enrollmentOutcome.alreadyEnrolled
+      ? await this.progressService.getSummary(enrollmentOutcome.student.id, courseId)
+      : await this.progressService.initializeProgress(enrollmentOutcome.student.id, courseId);
 
     return {
-      student: enrolledStudent,
-      enrollment: enrolledRecord,
-      alreadyEnrolled,
+      student: enrollmentOutcome.student,
+      enrollment: enrollmentOutcome.enrollment,
+      alreadyEnrolled: enrollmentOutcome.alreadyEnrolled,
       progress,
     };
   }

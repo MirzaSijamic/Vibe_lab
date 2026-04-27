@@ -2,6 +2,10 @@ import { MultipleChoiceQuestionRecord } from "../../types";
 import { AbstractQuestion } from "./AbstractQuestion";
 
 export class MultipleChoiceQuestion extends AbstractQuestion<MultipleChoiceQuestionRecord> {
+  public constructor(record: MultipleChoiceQuestionRecord) {
+    super(record);
+  }
+
   protected normalizeAnswer(rawAnswer: unknown): unknown {
     return String(rawAnswer ?? "").trim().toLowerCase();
   }

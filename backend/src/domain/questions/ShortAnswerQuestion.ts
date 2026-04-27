@@ -2,6 +2,10 @@ import { ShortAnswerQuestionRecord } from "../../types";
 import { AbstractQuestion } from "./AbstractQuestion";
 
 export class ShortAnswerQuestion extends AbstractQuestion<ShortAnswerQuestionRecord> {
+  public constructor(record: ShortAnswerQuestionRecord) {
+    super(record);
+  }
+
   protected normalizeAnswer(rawAnswer: unknown): unknown {
     return String(rawAnswer ?? "").trim().toLowerCase();
   }

@@ -114,6 +114,7 @@ export interface CourseView {
     gradingStrategy: GradingStrategyType;
     questionCount: number;
     passThreshold?: number;
+    questions: Array<Record<string, unknown>>;
   };
 }
 

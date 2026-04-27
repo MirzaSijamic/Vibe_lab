@@ -1,0 +1,70 @@
+{
+  "courses": [
+    {
+      "id": "course-js-foundations",
+      "title": "JavaScript Foundations",
+      "modules": [
+        {
+          "id": "module-basics",
+          "title": "Language Basics",
+          "lessons": [
+            {
+              "id": "lesson-variables",
+              "title": "Variables and Types",
+              "durationMinutes": 15
+            },
+            {
+              "id": "lesson-functions",
+              "title": "Functions and Scope",
+              "durationMinutes": 20
+            }
+          ]
+        },
+        {
+          "id": "module-logic",
+          "title": "Control Flow",
+          "lessons": [
+            {
+              "id": "lesson-conditionals",
+              "title": "Conditionals",
+              "durationMinutes": 18
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "id": "quiz-js-foundations",
+        "title": "JavaScript Foundations Checkpoint",
+        "gradingStrategy": "percentage",
+        "passThreshold": 70,
+        "questions": [
+          {
+            "id": "q1",
+            "type": "multiple-choice",
+            "prompt": "Which keyword declares a constant in JavaScript?",
+            "choices": ["let", "var", "const", "static"],
+            "correctOption": "const",
+            "weight": 1
+          },
+          {
+            "id": "q2",
+            "type": "true-false",
+            "prompt": "JavaScript functions can be assigned to variables.",
+            "correct": true,
+            "weight": 1
+          },
+          {
+            "id": "q3",
+            "type": "short-answer",
+            "prompt": "What method converts JSON text into an object?",
+            "acceptableAnswers": ["JSON.parse", "json.parse"],
+            "weight": 2
+          }
+        ]
+      }
+    }
+  ],
+  "students": [],
+  "enrollments": [],
+  "progress": []
+}
